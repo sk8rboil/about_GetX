@@ -9,7 +9,7 @@ class SecondScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Counter counter = Get.find();
+    final Controller counter = Get.find();
     return Scaffold(
       appBar: AppBar(),
       body: Center(
