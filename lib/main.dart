@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:basic_get/homepage.dart';
+import 'package:basic_get/screens/state_management.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -21,6 +22,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const MyHomepage(title: 'Flutter Demo Home Page'),
+      routes: {
+        '/state_management': (context) => MyStateManagement(),
+      },
     );
   }
 }
