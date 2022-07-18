@@ -19,8 +19,57 @@ class MyStateManagement extends StatelessWidget {
           obxString(counter),
           obxDouble(counter),
           obxBool(counter),
+          obxList(counter),
+          obxSet(counter),
+          Divider(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                child: Obx(
+                  () => ListTile(
+                    leading: CircleAvatar(
+                      child: Text('${counter.myMap["id"]}'),
+                    ),
+                    title: Text('name: ${counter.myMap["name"]}'),
+                    subtitle: Text('age: ${counter.myMap["age"]}'),
+                  ),
+                ),
+              ),
+              ElevatedButton(
+                onPressed: counter.changeName,
+                child: Text('data'),
+              ),
+            ],
+          ),
         ],
       ),
+    );
+  }
+
+  Row obxSet(HomeController counter) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Obx(() => Text(counter.dataSets.toString())),
+        ElevatedButton(
+          onPressed: counter.adddataSet,
+          child: Text('add data in list'),
+        ),
+      ],
+    );
+  }
+
+  Row obxList(HomeController counter) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Obx(() => Text(counter.dataList.toString())),
+        ElevatedButton(
+          onPressed: counter.adddataList,
+          child: Text('add data in list'),
+        ),
+      ],
     );
   }
 
