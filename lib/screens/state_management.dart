@@ -22,28 +22,32 @@ class MyStateManagement extends StatelessWidget {
           obxList(counter),
           obxSet(counter),
           Divider(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(
-                child: Obx(
-                  () => ListTile(
-                    leading: CircleAvatar(
-                      child: Text('${counter.myMap["id"]}'),
-                    ),
-                    title: Text('name: ${counter.myMap["name"]}'),
-                    subtitle: Text('age: ${counter.myMap["age"]}'),
-                  ),
-                ),
-              ),
-              ElevatedButton(
-                onPressed: counter.changeName,
-                child: Text('data'),
-              ),
-            ],
-          ),
+          obxMap(counter),
         ],
       ),
+    );
+  }
+
+  Row obxMap(HomeController counter) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Expanded(
+          child: Obx(
+            () => ListTile(
+              leading: CircleAvatar(
+                child: Text('${counter.myMap["id"]}'),
+              ),
+              title: Text('name: ${counter.myMap["name"]}'),
+              subtitle: Text('age: ${counter.myMap["age"]}'),
+            ),
+          ),
+        ),
+        ElevatedButton(
+          onPressed: counter.changeName,
+          child: Text('data'),
+        ),
+      ],
     );
   }
 
